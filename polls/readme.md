@@ -40,10 +40,12 @@
    ```bash
    npx prisma studio
 
-11. **Usar o HOPPSCOTH:**
-
-12. **Instalar ZOD para validaçao de dados**
+11. **Instalar ZOD para validaçao de dados**
    ```bash
    npm install zod
+
+12. **Usar o HOPPSCOTH:**
+   Ferramenta que permite realizar requisições HTTP
+
 
 
