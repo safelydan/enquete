@@ -45,6 +45,8 @@
    npm install zod
 
 12. **Usar o HOPPSCOTH:**
+   ```bash
+   https://hoppscotch.io/
    Ferramenta que permite realizar requisições HTTP
 
 
