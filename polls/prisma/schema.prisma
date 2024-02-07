@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Poll {
+  id String @id @default(uuid()) //gera um id maior e unico //usamos id nao numero pois nao queriamos que seja acessado por outros usuarios
+  title String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+// ORM simplifica a interação entre sistemas orientados a objetos e bancos de dados relacionais, 
+//permitindo que desenvolvedores usem objetos em vez de consultas SQL. Facilita a manutenção e melhora a legibilidade do código.
