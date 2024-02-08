@@ -20,6 +20,7 @@ model Poll {
   createdAt DateTime     @default(now()) // data de criação da enquete.
   updatedAt DateTime     @default(now()) // data de última atualização da enquete.
   options   PollOption[] // relacionamento com as opções da enquete, nao gera um campo no banco, serve apenas pro prisma entender internamente
+  vote      Vote[]
 }
 
 // model PollOption:
@@ -30,6 +31,20 @@ model PollOption {
   title  String // título da opção da enquete.
   pollId String // chave estrangeira que se refere ao ID da enquete relacionada.
   poll   Poll   @relation(fields: [pollId], references: [id]) // estabelece a relação entre PollOption e Poll.
+  vote   Vote[]
+}
+
+model Vote {
+  id           Int      @id @default(autoincrement()) // identificador único e autoincrementável para cada voto.
+  sessionId    String // identificador da sessão associada a este voto.
+  pollOptionId String // identificador da opção de votação escolhida neste voto.
+  pollId       String // identificador da enquete (poll) à qual este voto pertence.
+  createdAt    DateTime @default(now()) // data e hora de criação do voto, definida automaticamente para o momento atual.
+
+  pollOption PollOption @relation(fields: [pollOptionId], references: [id]) // relacionamento com a tabela PollOption, usando o identificador da opção de votação.
+  poll       Poll       @relation(fields: [pollId], references: [id]) // relacionamento com a tabela Poll, usando o identificador da enquete.
+
+  @@unique([sessionId, pollId]) // restrição de unicidade para garantir que um usuário não vote mais de uma vez na mesma enquete.
 }
 
 // comentário sobre ORM (Object-Relational Mapping):
