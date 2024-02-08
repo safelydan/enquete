@@ -6,3 +6,6 @@ durante o curso iremos construir um aplicativo de enquetes em tempo real na tril
 montamos um setup com typeScript, fastify e prisma, entender conceitos de API, como método HTTP e rotas, além de criar nossa primeira tabela utilizando Prisma. 
 
 ### segunda aula
+
+refatoramos o codigo
+criamos a tabela de opçoes da enquete
