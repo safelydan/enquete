@@ -15,37 +15,22 @@
    npx tsc
 
 
-4. **Verificar se o Docker está instalado:**
-   ```bash
-    docker --version
-
-
-5. **Verificar se o Docker Compose está instalado:**
-   ```bash
-    docker-compose --version
-
-
-6. **Criar e iniciar contêineres definidos no Docker Compose:**
+5. **Criar e iniciar contêineres definidos no Docker Compose:**
    ```bash
     docker-compose up -d
 
 
-7. **Verificar contêineres em execução:**
+6. **Inicialização do Prisma:**
    ```bash
-    docker ps
+   npx prisma init
 
 
-8. **Inicialização do Prisma (Execução de Migrações):**
+7. **Inicialização do Prisma (Execução de Migrações):**
    ```bash
    npx prisma migrate dev
 
 
-9. **Execuçao do Prisma Studio para ter uma interface:**
-   ```bash
-   npx prisma studio
-
-
-10. **Usar o HOPPSCOTH:**
+8. **Usar o HOPPSCOTH:**
    ```bash
    https://hoppscotch.io/
    

@@ -1,18 +1,38 @@
+// generator client:
+// Gera o cliente Prisma para interação fácil e tipada com o banco de dados.
+
 generator client {
   provider = "prisma-client-js"
 }
 
+// datasource db:
+// Configuração da fonte de dados para o PostgreSQL.
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
+// model Poll:
+// representa uma tabela no banco de dados para armazenar informações sobre enquetes.
 model Poll {
-  id String @id @default(uuid()) //gera um id maior e unico //usamos id nao numero pois nao queriamos que seja acessado por outros usuarios
-  title String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  id        String       @id @default(uuid()) // gera um ID único e maior.
+  title     String // título da enquete.
+  createdAt DateTime     @default(now()) // data de criação da enquete.
+  updatedAt DateTime     @default(now()) // data de última atualização da enquete.
+  options   PollOption[] // relacionamento com as opções da enquete, nao gera um campo no banco, serve apenas pro prisma entender internamente
 }
 
-// ORM simplifica a interação entre sistemas orientados a objetos e bancos de dados relacionais, 
-//permitindo que desenvolvedores usem objetos em vez de consultas SQL. Facilita a manutenção e melhora a legibilidade do código.
+// model PollOption:
+// representa uma tabela no banco de dados para armazenar informações sobre as opções de enquete.
+
+model PollOption {
+  id     String @id @default(uuid()) // gera um ID único para a opção da enquete.
+  title  String // título da opção da enquete.
+  pollId String // chave estrangeira que se refere ao ID da enquete relacionada.
+  poll   Poll   @relation(fields: [pollId], references: [id]) // estabelece a relação entre PollOption e Poll.
+}
+
+// comentário sobre ORM (Object-Relational Mapping):
+// ORM simplifica a interação entre sistemas orientados a objetos e bancos de dados relacionais.
+// permite que desenvolvedores usem objetos em vez de consultas SQL, facilitando a manutenção
+// e melhorando a legibilidade do código.
