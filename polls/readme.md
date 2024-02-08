@@ -2,7 +2,7 @@
 
 1. **Instalação de Dependências do Projeto (Express, Fastify, Prisma e Zod):**
    ```bash
-    npm install typescript express fastify @prisma/cli @prisma/client zod 
+    npm install typescript express fastify @prisma/cli @prisma/client zod @fastify/cookie
 
 
 2. **Inicialização do Projeto com TypeScript:**
