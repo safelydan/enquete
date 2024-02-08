@@ -63,6 +63,7 @@ export async function voteOnPoll(app: FastifyInstance) {
         pollOptionId,
       },
     });
+    
     return res.status(201).send();
   });
 }
