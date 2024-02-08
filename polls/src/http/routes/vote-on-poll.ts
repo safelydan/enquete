@@ -38,8 +38,7 @@ export async function voteOnPoll(app: FastifyInstance) {
             })
         }else if (userPreviousVoteOnPoll){
             return res.status(400).send({msg: 'you already vote on this poll'})
-        }
-        
+        } 
       }
     }
 
