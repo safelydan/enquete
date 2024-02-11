@@ -1,8 +1,8 @@
 ## Configuração do Ambiente de Desenvolvimento
 
-1. **Instalação de Dependências do Projeto (Express, Fastify, Prisma e Zod):**
+1. **Instalação de todas as dependências do projeto:**
    ```bash
-    npm install typescript express fastify @prisma/cli @prisma/client zod @fastify/cookie
+    npm install
 
 
 2. **Inicialização do Projeto com TypeScript:**

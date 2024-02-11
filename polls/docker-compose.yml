@@ -1,26 +1,26 @@
-version: '3.7'
+version: '3.7'  # versão do formato do arquivo Docker Compose.
 
 services:
   postgres:
-    image: bitnami/postgresql:latest
+    image: bitnami/postgresql:latest  # imagem do contêiner PostgreSQL.
     ports:
-      - '5432:5432'
+      - '5432:5432'  # mapeia a porta 5432 do contêiner para a porta 5432 do host.
     environment:
-      - POSTGRES_USER=docker
-      - POSTGRES_PASSWORD=docker
-      - POSTGRES_DB=polls
-    volumes: 
-      - polls_pg_data:/bitnami/postgresql
+      - POSTGRES_USER=docker  # define o usuário do PostgreSQL.
+      - POSTGRES_PASSWORD=docker  # define a senha do PostgreSQL.
+      - POSTGRES_DB=polls  # define o nome do banco de dados PostgreSQL.
+    volumes:
+      - polls_pg_data:/bitnami/postgresql  # mapeia o volume para armazenar dados persistentes do PostgreSQL.
 
   redis:
-    image: bitnami/redis:latest
+    image: bitnami/redis:latest  # imagem do contêiner Redis.
     environment:
-      - ALLOW_EMPTY_PASSWORD=yes
+      - ALLOW_EMPTY_PASSWORD=yes  # permite senha vazia para o Redis.
     ports:
-      - '6379:6379'
+      - '6379:6379'  # mapeia a porta 6379 do contêiner para a porta 6379 do host.
     volumes:
-      - 'polls_redis_data:/bitnami/redis/data'
+      - polls_redis_data:/bitnami/redis/data  # mapeia o volume para armazenar dados persistentes do Redis.
 
 volumes:
-  polls_pg_data:
-  polls_redis_data:
+  polls_pg_data:  # volume para armazenar os dados do PostgreSQL.
+  polls_redis_data:  # volume para armazenar os dados do Redis.

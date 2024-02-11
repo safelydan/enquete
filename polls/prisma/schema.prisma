@@ -30,6 +30,7 @@ model PollOption {
   id     String @id @default(uuid()) // gera um ID único para a opção da enquete.
   title  String // título da opção da enquete.
   pollId String // chave estrangeira que se refere ao ID da enquete relacionada.
+  votesAmout Int
   poll   Poll   @relation(fields: [pollId], references: [id]) // estabelece a relação entre PollOption e Poll.
   vote   Vote[]
 }
